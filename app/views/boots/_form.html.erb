@@ -1,0 +1,12 @@
+<%= simple_form_for(@boot, :html => { :class => 'form-vertical' }, :remote => true) do |f| %>
+<fieldset>
+    <%= f.input :number, :input_html => { :value => suggested_number } %>
+    <%= f.input :size, :collection => boot_size_options %>
+    <%= f.input :condition, :collection => boot_condition_options %>
+    <%= f.input :brand , :collection => boot_brand_options %>
+</fieldset>
+    <div class="form-actions">
+  <%= f.button :submit, :class => 'btn btn-primary' %>
+  <%= submit_tag 'Reset', :type => :reset, :class => "btn btn-danger" %>
+    </div>
+<% end %>

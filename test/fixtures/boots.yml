@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  number: 1
+  size: 1
+  brand: MyString
+  condition: MyString
+  store_id: 1
+
+two:
+  number: 1
+  size: 1
+  brand: MyString
+  condition: MyString
+  store_id: 1

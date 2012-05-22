@@ -1,0 +1,21 @@
+<div class="devise">
+  <h1 devise>Settings</h1>
+</div>  
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
+  <fieldset>
+    <%= f.input :store_name, :label => 'Store Name'%>
+    <%= f.input :owner_first_name, :label => 'First Name'%>
+    <%= f.input :owner_last_name, :label => 'Last Name'%>
+    <%= f.input :email %>
+    <%= f.input :city %>
+    <%= f.input :country %>
+    <%= f.input :phone%>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  </fieldset>
+    <div class="form-actions">
+  <%= f.submit "Update", :class => 'btn btn-primary' %>
+  <%= submit_tag 'Reset', :type => :reset, :class => "btn btn-danger" %>
+  </div>
+<% end %>
+

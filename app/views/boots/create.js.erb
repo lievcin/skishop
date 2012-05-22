@@ -1,0 +1,7 @@
+<%- if @boot.errors.any? %>
+  $('#modal').html('<%= escape_javascript(render('form')) %>');
+<%- else %>
+  $('#modal').dialog('close');
+  $('#modal').remove();
+  $('#boots_table').append('<%=escape_javascript(render(@boot)) %>');
+<%- end %>

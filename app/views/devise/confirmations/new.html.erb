@@ -1,0 +1,10 @@
+<h2>Resend confirmation instructions</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+  	<fieldset>
+	<%= f.label :email %>
+  	<%= f.email_field :email, :hint => 'enter email address to send'%>
+  	<fieldset>
+  <%= f.submit "Resend confirmation instructions", :class => 'btn btn-primary'%>
+<% end %>

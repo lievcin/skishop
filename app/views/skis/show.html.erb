@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @ski.number %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @ski.size %>
+</p>
+
+<p>
+  <b>Brand:</b>
+  <%= @ski.brand %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%= @ski.condition %>
+</p>
+
+<p>
+  <b>Store:</b>
+  <%= @ski.store_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ski_path(@ski) %> |
+<%= link_to 'Back', skis_path %>

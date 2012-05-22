@@ -1,0 +1,12 @@
+<%= simple_form_for(@package, :html => { :class => 'form-vertical' }, :remote => true) do |f| %>
+  <fieldset>
+    <%= f.input :ski_id, :collection => @available_skis, :label_method => :number, :value_method => :id %>
+    <%= f.input :boot_id, :collection => @available_boots, :label_method => :number, :value_method => :id %>
+    <%= f.input :start_date, :as => :string %>
+    <%= f.input :end_date, :as => :string %>
+  </fieldset>
+    <div class="form-actions">
+  <%= f.button :submit, :class => 'btn btn-primary' %>
+  <%= submit_tag 'Reset', :type => :reset, :class => "btn btn-danger" %>
+  </div>
+<% end %>

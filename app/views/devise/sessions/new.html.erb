@@ -1,0 +1,13 @@
+<div class="devise">
+	<h1 devise>Sign in</h1>
+</div><br />
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-vertical' }) do |f| %>
+  <fieldset>
+    <%= f.input :email %>
+    <%= f.input :password%>
+  </fieldset>
+  <div class="form-actions">
+  	<p><%= f.submit "Sign in", :class => 'btn btn-primary' %><p>
+  </div>
+<% end %>
+  <%= render :partial => "devise/shared/links" %>

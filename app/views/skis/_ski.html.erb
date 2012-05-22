@@ -1,0 +1,12 @@
+<%= content_tag_for(:tr, ski, :class => cycle('odd','even')) do %>
+	<td style="text-align:center">
+	  <a class="btn btn-mini btn-info" href="<%=edit_ski_path(ski)%>" id="edit_ski_link" data-remote="true"><i class="icon-edit"></i></a>
+	  <a class="btn btn-mini btn-danger" href="<%=ski_path(ski)%>" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><i class="icon-trash"></i></a>
+	</td>
+	<td style="text-align:center"><span class="badge badge-success"><%=h ski.number %></span></td>
+	<td style="text-align:center"><%=h ski.size %></td>
+	<td style="text-align:center"><%=h ski.condition %></td>
+	<td style="text-align:center"><%=h ski.brand %></td>
+	<td style="text-align:center"><span class="badge badge-<%= ski.in_store ? "success" : "error" %>"><%=h ski.in_store ? "In Store" : "Out Skiing" %></td>
+	<td style="text-align:center"><span class="badge badge-<%= ski.available ? "success" : "error" %>"><%=h ski.available ? "Available" : "Reserved" %></td>	
+<% end %>

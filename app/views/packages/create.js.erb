@@ -1,0 +1,24 @@
+<%- if @package.errors.any? %>
+  $('#modal').html('<%= escape_javascript(render('form')) %>');
+  $(document).ready(function() {
+  		var dates = $( "#package_start_date, #package_end_date" ).datepicker({
+		  defaultDate: 0,
+		  minDate: 0,
+		  numberOfMonths: 2,
+		  dateFormat: "yy-mm-dd",
+		  onSelect: function( selectedDate ) {
+					var option = this.id == "package_start_date" ? "minDate" : "maxDate",
+					instance = $( this ).data( "datepicker" ),
+					date = $.datepicker.parseDate(
+					instance.settings.dateFormat ||
+					$.datepicker._defaults.dateFormat,
+					selectedDate, instance.settings );
+					dates.not( this ).datepicker( "option", option, date );
+					}
+		  });
+  });
+<%- else %>
+  $('#modal').dialog('close');
+  $('#modal').remove();
+  window.location.reload();
+<%- end %>

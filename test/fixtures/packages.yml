@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer_id: MyString
+  ski_id: 1
+  boot_id: 1
+  start_date: 2012-05-06
+  end_date: 2012-05-06
+
+two:
+  customer_id: MyString
+  ski_id: 1
+  boot_id: 1
+  start_date: 2012-05-06
+  end_date: 2012-05-06

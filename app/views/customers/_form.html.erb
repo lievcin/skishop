@@ -1,0 +1,13 @@
+<%= simple_form_for(@customer, :html => { :class => 'form-vertical' }, :remote => true) do |f| %>
+  <fieldset>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :country %>
+    <%= f.input :phone %>
+    <%= f.input :hotel %>
+  </fieldset>
+    <div class="form-actions">
+  <%= f.button :submit, :class => 'btn btn-primary' %>
+  <%= submit_tag 'Reset', :type => :reset, :class => "btn btn-danger" %>
+  </div>
+<% end %>

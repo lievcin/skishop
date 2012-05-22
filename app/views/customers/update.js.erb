@@ -1,0 +1,7 @@
+<%- if @customer.errors.any? %>
+  $('#modal').html('<%= escape_javascript(render('form')) %>');
+<%- else %>
+  $('#modal').dialog('close');
+  $('#modal').remove();
+  window.location.reload();
+<%- end %>

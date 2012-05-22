@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SkiResortBoot</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+	    <div class="navbar-inner">
+	      <div class="container">
+	        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </a>
+	        <a class="brand" href="#"><%= current_store ? current_store.store_name : "Ski Shop"%></a>
+	        <div class="nav-collapse">
+	          <ul class="nav">
+	            <li><%= link_to "Dashboard", store_root_path%></li>		
+	            <li><%= link_to "Reports" %></li>
+	            <li class="dropdown">
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">	
+					Inventory
+		 		  <b class="caret"></b></a>
+	              <ul class="dropdown-menu">
+	                <li><a><%= link_to "Boots", boots_path%></a></li>
+	                <li><a><%= link_to "Skis", skis_path%></li>
+	              </ul>
+	            </li>
+	          </ul>
+			   <ul class="nav pull-right">
+			            <li><%= mail_to "skishopmanager@gmail.com", "Contact Us" %></li>
+			            <li class="divider-vertical"></li>
+			            <li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							  <% if store_signed_in? %>
+							    Signed in as <%= current_store.owner_first_name + ' ' +  current_store.owner_last_name%>							    
+							  <% end %>				
+				 		  <b class="caret"></b></a>
+			              <ul class="dropdown-menu">
+			                <li><a href="#">Something else</a></li>
+			                <li><a href="#"> </a></li>
+			                <li><a href="#"><%= link_to "Settings", edit_store_registration_path%></li>
+			                <li class="divider"></li>
+			                <li><a href="#"><%= link_to "Sign out", destroy_store_session_path, :method => :delete %></a></li>
+			              </ul>
+			            </li>
+			   </ul>
+	        </div>
+	      <ul class="nav secondary-nav"></ul>
+	      </div>
+	    </div>
+	  </div>
+	
+	<div class="container">	
+		
+		<% flash.each do |name, msg| %>
+		  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+		    <a class="close" data-dismiss="alert">×</a>
+		    <%= msg %>
+		  </div>
+		<% end %>
+
+		<br />			
+		<br />	
+		<div class="row">	
+				<div class="span4" id="customer_section">	
+					<h3><input type="text" name="search" value="" id="cust_tb_filter" placeholder="Search Customers" autofocus="">
+         			 <a class="btn btn-success pull-right" href="<%=new_customer_path%>" id="new_customer_link" data-remote="true" rel="popover" data-content="Click to add more customers to your store!"><i class="icon-plus-sign"></i> Add Customer</a></h3>
+					<div data-spy="scroll" data-target="#customer_section", class="scrollspy-table"><%= yield (:customers) %></div>
+				</div>	
+				<% if @packages %>
+				<div class="span4" id="packages_section">	
+					<h3><input type="text" name="search" value="" id="packages_tb_filter" placeholder="<%=pluralize(Customer.find(session[:customer_id]).packages.size, 'package') if session[:customer_id]%> for <%=Customer.find(session[:customer_id]).first_name + ' ' + Customer.find(session[:customer_id]).last_name if session[:customer_id]%>" + autofocus="">
+						<a class="btn btn-success pull-right" href="<%=new_customer_package_path(session[:customer_id]) if session[:customer_id]%>" id="new_package_link" data-remote="true" rel="popover" data-content="Give them some boots and skis!"><i class="icon-plus-sign"></i> Add Package</a></h3>	
+					<div data-spy="scroll" data-target="#packages_section", class="scrollspy-table"><%= yield (:packages) %></div>
+				</div>
+				<% if @rentals %>
+				<div class="span4" id="rentals_section">
+				<br /><br />
+					<div data-spy="scroll" data-target="#logs_section", class="scrollspy-table"><%= yield (:rentals) %></div>
+				</div>
+				<% end %>
+				<% end %>
+			<p id="modal"></p>
+		</div>
+	</div>
+</body>	
+</html>

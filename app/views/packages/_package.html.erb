@@ -1,0 +1,13 @@
+<%= content_tag_for(:tr, package, :class => cycle('odd','even')) do %>
+	<td style="text-align:center">
+	  <a class="btn btn-mini btn-info" href="<%=edit_package_path(package)%>" id="edit_package_link" data-remote="true"><i class="icon-edit"></i></a>
+	  <a class="btn btn-mini btn-danger" href="<%=package_path(package)%>" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><i class="icon-trash"></i></a>
+	</td>
+	<td style="text-align:center"><%= package.ski.number %></td>
+	<td style="text-align:center"><%= package.boot.number %></td>
+	<td style="text-align:center"><%= package.start_date %></td>
+	<td style="text-align:center"><%= package.end_date %></td>
+	<td style="text-align:center">
+		<a class="btn btn-mini btn-primary" href="<%= store_root_path(:package_id => package.id) %>"><i class="icon-tags"></i></a>
+	</td>
+<% end %>

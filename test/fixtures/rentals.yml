@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  package_id: 1
+  check_in: 2012-05-20 16:58:49
+  check_out: 2012-05-20 16:58:49
+
+two:
+  package_id: 1
+  check_in: 2012-05-20 16:58:49
+  check_out: 2012-05-20 16:58:49

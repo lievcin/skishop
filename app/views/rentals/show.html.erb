@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Package:</b>
+  <%= @rental.package_id %>
+</p>
+
+<p>
+  <b>Check in:</b>
+  <%= @rental.check_in %>
+</p>
+
+<p>
+  <b>Check out:</b>
+  <%= @rental.check_out %>
+</p>
+
+
+<%= link_to 'Edit', edit_rental_path(@rental) %> |
+<%= link_to 'Back', rentals_path %>

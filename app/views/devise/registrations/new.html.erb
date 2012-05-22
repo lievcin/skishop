@@ -1,0 +1,20 @@
+<div class="devise">
+	<h2 devise>Sign up</h2>
+</div>	
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-vertical' }) do |f| %>
+  <fieldset>
+    <%= f.input :store_name, :label => 'Store Name'%>
+    <%= f.input :owner_first_name, :label => 'First Name'%>
+    <%= f.input :owner_last_name, :label => 'Last Name'%>
+    <%= f.input :email %>
+    <%= f.input :city %>
+    <%= f.input :country %>
+    <%= f.input :phone%>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+	</fieldset>
+    <div class="form-actions">
+	<%= f.submit "I accept terms and conditions", :class => 'btn btn-primary' %>
+	<%= submit_tag 'Reset', :type => :reset, :class => "btn btn-danger" %>
+	</div>
+<% end %>

@@ -1,0 +1,20 @@
+<div><p class="btn btn-success"> This store has <%=pluralize(@skis.size, 'pair') %> added!</p>
+<p class="pull-right"><%= link_to 'New Skis', new_ski_path, :class => 'btn btn-primary', :remote => true, :id => 'new_ski_link' %></p></div>
+
+<table class="table" id="skis_table">
+  <thead style="text-align:center">
+    <tr>
+      <th style="text-align:center"><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th style="text-align:center">Number</th>
+      <th style="text-align:center">Size</th>
+      <th style="text-align:center">Condition</th>  
+      <th style="text-align:center">Brand</th>
+      <th style="text-align:center">Location</th>
+      <th style="text-align:center">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+ 		<%= render :partial => @skis %>
+  </tbody>
+</table>
+

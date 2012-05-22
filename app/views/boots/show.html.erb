@@ -1,0 +1,31 @@
+<%- model_class = @boot.class -%>
+<h2><%=t '.title', :default => model_class.model_name.human %></h2>
+
+<p>
+  <strong><%= model_class.human_attribute_name(:size) %>:</strong><br>
+  <%= @boot.size %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:condition) %>:</strong><br>
+  <%= @boot.condition %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:brand) %>:</strong><br>
+  <%= @boot.brand %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:number) %>:</strong><br>
+  <%= @boot.number %>
+</p>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              boots_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_boot_path(@boot), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              boot_path(@boot),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

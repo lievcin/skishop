@@ -1,0 +1,7 @@
+<%= content_tag_for(:tr, customer, :class => cycle('odd','even')) do %>
+	 <td style="text-align:center">
+	      <a class="btn btn-mini btn-info" href="<%=edit_customer_path(customer)%>" id="edit_customer_link" data-remote="true"><i class="icon-edit"></i></a>
+	      <a class="btn btn-mini btn-danger" href="<%=customer_path(customer)%>" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><i class="icon-trash"></i></a>
+	    </td>
+	    <td><%=h link_to customer.first_name + ' ' + customer.last_name, :controller => 'dashboard', :action => 'main', :customer_id => customer.id %></td>
+<% end %>

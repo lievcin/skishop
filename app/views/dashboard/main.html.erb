@@ -1,0 +1,65 @@
+<% content_for :customers do %>
+<br />
+
+<table class="table table-condensed table-striped table-bordered" id="customers">
+  <thead>
+    <tr>
+      <th style="text-align:center">Actions</th>
+      <th style="text-align:center">Customer Name</th>
+    </tr>
+  </thead>
+  <tbody>
+ 	<%= render :partial => @customers %>
+  </tbody>
+</table>
+<% end %>
+
+
+<% content_for :packages do %>
+<br />
+<table class="table table-condensed table-striped table-bordered" id="packages">
+  <thead>
+    <tr>
+      <th style="text-align:center">Actions</th>      
+      <th style="text-align:center">Ski #</th>
+      <th style="text-align:center">Boot #</th>
+      <th style="text-align:center">Start Date</th>
+      <th style="text-align:center">End Date</th>
+      <th style="text-align:center"></th>            
+    </tr>
+  </thead>
+  <tbody> 
+	  <% if @packages %>
+ 		<%= render :partial => @packages %>		
+      <% end %>  
+  </tbody>
+</table>
+<% end %>
+
+<% content_for :rentals do %>
+<br />
+<table class="table table-condensed table-striped table-bordered" id="rentals">
+  <thead>
+    <tr>
+      <th style="text-align:center">Checked Out</th>
+      <th style="text-align:center">Checked In</th>
+    </tr>
+  </thead>
+  <tbody> 
+	  <% if @rentals %>
+ 		<%= render :partial => @rentals %>		
+      <% end %>  
+  </tbody>
+</table>
+	<a class="btn btn-success" href="<%=new_package_rental_path(session[:package_id]) if session[:package_id]%>" data-remote="true">Check out <i class="icon-arrow-right"></i></a>
+	<a class="btn btn-success" href="<%='/packages/' + session[:package_id] + '/rentals/checkout' if session[:package_id]%>" data-remote="true">Check out <i class="icon-arrow-right"></i></a>	
+<% end %>
+
+
+
+
+
+
+
+
+
