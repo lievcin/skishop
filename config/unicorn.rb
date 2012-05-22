@@ -1,9 +1,9 @@
-root = "/home/deployer/apps/ski_rental/current"
+root = "/home/deployer/apps/skishopmanager/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
 
-listen "/tmp/unicorn.ski_rental.sock"
+listen "/tmp/unicorn.skishopmanager.sock"
 worker_processes 2
 timeout 30
