@@ -2,7 +2,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: ski_resort_production
+  database: ski_rental_production
   pool: 5
   username: proto
   password: proto
