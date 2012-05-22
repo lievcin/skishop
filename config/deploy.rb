@@ -2,7 +2,7 @@ require "bundler/capistrano"
 
 server "176.58.101.41", :web, :app, :db, primary: true
 
-set :application, "ski_rental"
+set :application, "skishopmanager"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
