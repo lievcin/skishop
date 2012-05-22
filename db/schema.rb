@@ -36,14 +36,6 @@ ActiveRecord::Schema.define(:version => 20120520155849) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "package_logs", :force => true do |t|
-    t.integer  "package_id"
-    t.datetime "check_in"
-    t.datetime "check_out"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "packages", :force => true do |t|
     t.string   "customer_id"
     t.integer  "ski_id"
@@ -85,6 +77,9 @@ ActiveRecord::Schema.define(:version => 20120520155849) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
     t.string   "store_name"
@@ -93,9 +88,6 @@ ActiveRecord::Schema.define(:version => 20120520155849) do
     t.string   "country"
     t.string   "city"
     t.string   "phone"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
   end
 
   add_index "stores", ["email"], :name => "index_stores_on_email", :unique => true

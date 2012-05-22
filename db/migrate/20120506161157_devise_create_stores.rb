@@ -17,7 +17,7 @@ class DeviseCreateStores < ActiveRecord::Migration
 
     add_index :stores, :email,                :unique => true
     add_index :stores, :reset_password_token, :unique => true
-    # add_index :stores, :confirmation_token,   :unique => true
+    add_index :stores, :confirmation_token,   :unique => true
     # add_index :stores, :unlock_token,         :unique => true
     # add_index :stores, :authentication_token, :unique => true
   end

@@ -6,7 +6,8 @@ class CreateBoots < ActiveRecord::Migration
       t.string :brand
       t.string :condition
       t.integer :store_id
-
+      t.boolean :in_store
+      t.boolean :available
       t.timestamps
     end
   end
