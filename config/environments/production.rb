@@ -39,7 +39,7 @@ SkiRental::Application.configure do
           }
 
  
-  config.action_mailer.default_url_options = { :host => 'http://ec2-107-20-203-155.compute-1.amazonaws.com'}
+  config.action_mailer.default_url_options = { :host => 'ec2-107-20-203-155.compute-1.amazonaws.com'}
   
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
