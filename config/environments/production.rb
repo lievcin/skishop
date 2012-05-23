@@ -19,7 +19,7 @@ SkiRental::Application.configure do
   config.assets.initialize_on_precompile = false
 
   # Generate digests for assets URLs
-  config.assets.digest = true
+  config.assets.digest = false
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
