@@ -39,11 +39,11 @@ SkiRental::Application.configure do
           }
 
  
-  config.action_mailer.default_url_options = { :host => 'ec2-107-20-203-155.compute-1.amazonaws.com'}
+  config.action_mailer.default_url_options = { :host => '176.58.101.41'}
   
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
