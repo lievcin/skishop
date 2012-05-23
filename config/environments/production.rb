@@ -23,6 +23,24 @@ SkiRental::Application.configure do
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
+   require 'tlsmail'
+    Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.smtp_settings = {
+              :address => "smtp.gmail.com",
+              :port => "587",
+              :domain => "gmail.com",
+              :enable_starttls_auto => true,
+              :authentication => :login,
+              :user_name => "skishopmanager@gmail.com",
+              :password => "proto2012"
+          }
+
+ 
+  config.action_mailer.default_url_options = { :host => 'localhost:3000'}
+  
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
