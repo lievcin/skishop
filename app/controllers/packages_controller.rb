@@ -9,8 +9,8 @@ class PackagesController < ApplicationController
   def new
     @customer = Customer.find(session[:customer_id])
     @package = @customer.packages.build
-    @available_boots = Boot.available
-    @available_skis = Ski.available
+    @available_boots = Boot.this_store(current_store).available
+    @available_skis = Ski.this_store(current_store).available
   end
   
   def create

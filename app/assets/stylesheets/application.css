@@ -11,6 +11,7 @@
  *= require_self
  *= bootstrap
  *= bespoke
- *= require jquery.ui.all
+ *= require jquery-ui/redmond
  *= require_tree .
 */
+

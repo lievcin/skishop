@@ -30,7 +30,7 @@ opacity: .8;
 .jumbotron .btn-large {
   font-size: 20px;
   font-weight: normal;
-  padding: 14px 24px;
+  padding: 14px 40px;
   margin-right: 10px;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
@@ -42,7 +42,7 @@ opacity: .8;
 
 /* Masthead (docs home) */
 .masthead {
-  padding-top: 36px;
+  padding-top: 0px;
   margin-bottom: 72px;
 }
 .masthead h1,
@@ -66,7 +66,7 @@ opacity: .8;
 }
 .marketing h1 {
   margin: 36px 0 27px;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 300;
   text-align: center;
 }

@@ -8,6 +8,7 @@ class Store < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :store_name, :owner_first_name, :owner_last_name, :country, :city, :phone
   # attr_accessible :title, :body
+  cattr_accessor :current_store
 
   has_many :boots
   has_many :skis

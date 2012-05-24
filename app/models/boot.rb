@@ -2,9 +2,12 @@ class Boot < ActiveRecord::Base
   attr_accessible :brand, :condition, :number, :size, :store_id
   belongs_to :store
   has_many :packages
-  
-  scope :available, where(:available => 't')
-  
+  validates :number, :uniqueness => { :scope => :store_id }
+      
+  scope :available, where(:available => '1')
+  scope :this_store, lambda { |store|
+      where("boots.store_id = ?", store.id)
+  }
   before_create :allocate
   
   private
