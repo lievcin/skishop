@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120520155849) do
+ActiveRecord::Schema.define(:version => 20120525181306) do
 
   create_table "boots", :force => true do |t|
     t.integer  "number"
@@ -42,16 +42,17 @@ ActiveRecord::Schema.define(:version => 20120520155849) do
     t.integer  "boot_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "status",      :limit => 25
   end
 
   create_table "rentals", :force => true do |t|
     t.integer  "package_id"
-    t.datetime "check_in"
-    t.datetime "check_out"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "time"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.string   "in_or_out",  :limit => 25
   end
 
   create_table "skis", :force => true do |t|

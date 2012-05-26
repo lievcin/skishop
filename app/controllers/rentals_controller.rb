@@ -5,15 +5,43 @@ class RentalsController < ApplicationController
   def index
     @rentals = Rental.where(:package_id => params[:package_id]) if params[:package_id]
   end
-  
+
   def checkout
-    @rental = Rental.new
-    @rental.package_id = params[:package_id]
-    @rental.check_out = Time.now
-    @rental.save
-    redirect_to store_root_path    
+    @package = Package.find(params[:package_id])
+    @rental = @package.rentals.build    
+    @rental.time = Time.now
+    @rental.in_or_out = 'out'
+    @package.status = 'out'
+    @boot = @package.boot
+    @boot.in_store = false
+    respond_to do |format|
+      if @rental.save && @package.save && @boot.save
+        @rentals = @package.rentals
+        format.js
+      else
+        format.js
+      end
+    end    
   end
 
+  def checkin
+    @package = Package.find(params[:package_id])
+    @rental = @package.rentals.build    
+    @rental.time = Time.now
+    @rental.in_or_out = 'in'
+    @package.status = 'in' 
+    @boot = @package.boot
+    @boot.in_store = true    
+    respond_to do |format|
+      @rentals = @package.rentals 
+      if @rental.save && @package.save && @boot.save     
+        format.js
+      else
+        format.js
+      end
+    end    
+  end
+  
   def new
     @package = Package.find(session[:package_id])
     @rental = @package.rentals.build

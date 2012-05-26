@@ -25,7 +25,7 @@
       <th style="text-align:center">Boot #</th>
       <th style="text-align:center">Start Date</th>
       <th style="text-align:center">End Date</th>
-      <th style="text-align:center"></th>            
+      <th style="text-align:center">Actions</th>            
     </tr>
   </thead>
   <tbody> 
@@ -41,8 +41,8 @@
 <table class="table table-condensed table-striped table-bordered" id="rentals">
   <thead>
     <tr>
-      <th style="text-align:center">Checked Out</th>
-      <th style="text-align:center">Checked In</th>
+      <th style="text-align:center">Log</th>
+      <th style="text-align:center">Time</th>
     </tr>
   </thead>
   <tbody> 
@@ -51,8 +51,6 @@
       <% end %>  
   </tbody>
 </table>
-	<a class="btn btn-success" href="<%=new_package_rental_path(session[:package_id]) if session[:package_id]%>" data-remote="true">Check out <i class="icon-arrow-right"></i></a>
-	<a class="btn btn-success" href="<%='/packages/' + session[:package_id] + '/rentals/checkout' if session[:package_id]%>" data-remote="true">Check out <i class="icon-arrow-right"></i></a>	
 <% end %>
 
 

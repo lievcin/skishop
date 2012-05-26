@@ -11,7 +11,6 @@ before_filter :authenticate_store!
 
   def create
     @customer = current_store.customers.build(params[:customer])
-    # @customer = Customer.new(params[:customer])
     respond_to do |format|      
       if @customer.save
         format.js 

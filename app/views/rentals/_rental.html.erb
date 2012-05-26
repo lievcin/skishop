@@ -1,4 +1,5 @@
 <%= content_tag_for(:tr, rental, :class => cycle('odd','even')) do %>
-<td style="text-align:center"><%= rental.check_in %></td>
-<td style="text-align:center"><%= rental.check_out %></td>
+<td style="text-align:center"><span class="label label-<%= rental.in_or_out == 'out' ? "important" : "success" %>"><%= rental.in_or_out.camelize %></span></td>
+<td style="text-align:center"><%= rental.time.to_formatted_s(:long)  %></td>
 <% end %>
+

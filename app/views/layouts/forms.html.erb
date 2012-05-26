@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SkiResortBoot</title>
+  <title>Ski Shop Manager</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -16,7 +16,7 @@
 	          <span class="icon-bar"></span>
 	          <span class="icon-bar"></span>
 	        </a>
-	        <a class="brand" href="#"><%= current_store ? current_store.store_name : "Ski Shop"%></a>
+	        <a class="brand" href="/"><%= current_store ? current_store.store_name : "Ski Shop"%></a>
 	        <div class="nav-collapse">
 	          <ul class="nav">
 	            <li><%= link_to "Reports" %></li>

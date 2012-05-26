@@ -16,6 +16,7 @@ class PackagesController < ApplicationController
   def create
     @customer = Customer.find(session[:customer_id])
     @package = @customer.packages.build(params[:package])
+    @package.status = 'in'
     respond_to do |format|
       if @package.save           
         format.js

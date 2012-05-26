@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SkiResortBoot</title>
+  <title>Ski Shop Manager</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -16,7 +16,7 @@
 	          <span class="icon-bar"></span>
 	          <span class="icon-bar"></span>
 	        </a>
-	        <a class="brand" href="#"><%= current_store ? current_store.store_name : "Ski Shop"%></a>
+	        <a class="brand" href="/"><%= current_store ? current_store.store_name : "Ski Shop"%></a>
 	        <div class="nav-collapse">
 	          <ul class="nav">
 	            <li><%= link_to "Dashboard", store_root_path%></li>		
@@ -73,13 +73,13 @@
 					<div data-spy="scroll" data-target="#customer_section", class="scrollspy-table"><%= yield (:customers) %></div>
 				</div>	
 				<% if @packages %>
-				<div class="span4" id="packages_section">	
-					<h3><input type="text" name="search" value="" id="packages_tb_filter" placeholder="<%=pluralize(Customer.find(session[:customer_id]).packages.size, 'package') if session[:customer_id]%> for <%=Customer.find(session[:customer_id]).first_name + ' ' + Customer.find(session[:customer_id]).last_name if session[:customer_id]%>" + autofocus="">
-						<a class="btn btn-success pull-right" href="<%=new_customer_package_path(session[:customer_id]) if session[:customer_id]%>" id="new_package_link" data-remote="true" rel="popover" data-content="Give them some boots and skis!"><i class="icon-plus-sign"></i> Add Package</a></h3>	
+				<div class="span5" id="packages_section">	
+					<h3><input type="text" name="search" value="" id="packages_tb_filter" placeholder="<%=pluralize(Customer.find(params[:customer_id]).packages.size, 'package') if params[:customer_id]%> for <%=Customer.find(params[:customer_id]).first_name + ' ' + Customer.find(params[:customer_id]).last_name if params[:customer_id]%>" + autofocus="">
+						<a class="btn btn-success pull-right" href="<%=new_customer_package_path(params[:customer_id]) if params[:customer_id]%>" id="new_package_link" data-remote="true" rel="popover" data-content="Give them some boots and skis!"><i class="icon-plus-sign"></i> Add Package</a></h3>	
 					<div data-spy="scroll" data-target="#packages_section", class="scrollspy-table"><%= yield (:packages) %></div>
 				</div>
 				<% if @rentals %>
-				<div class="span4" id="rentals_section">
+				<div class="span3" id="rentals_section">
 				<br /><br />
 					<div data-spy="scroll" data-target="#logs_section", class="scrollspy-table"><%= yield (:rentals) %></div>
 				</div>

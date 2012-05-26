@@ -3,7 +3,9 @@ SkiRental::Application.routes.draw do
   root :to => "dashboard#home"
   devise_for :stores
   match 'dashboard/main' => "dashboard#main", :as => "store_root"
-  match 'rentals/checkout' => "rentals#checkout", :as => "checkout"
+  # match 'rentals/checkout/:package_id' => "rentals#checkout", :as => "checkout"
+  match 'rentals/:package_id/checkout' => "rentals#checkout", :as => "checkout"
+  match 'rentals/:package_id/checkin' => "rentals#checkin", :as => "checkin"  
   # http://stackoverflow.com/questions/9139901/cant-trigger-this-controller-action-in-a-view-it-isnt-a-default-rails-restful
   # get 'rentals/:id/checkout' => 'rentals#checkout', as: 'checkout2'
   

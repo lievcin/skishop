@@ -3,5 +3,6 @@ class Customer < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
   belongs_to :store
   has_many :packages
+  has_many :rentals, :through => :packages
   
 end

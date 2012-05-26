@@ -2,9 +2,7 @@ class SkisController < ApplicationController
 before_filter :authenticate_store!  
 
 def index
-  session.delete :customer_id
-  session.delete :package_id
-  @skis = current_store.skis
+  @skis = current_store.skis.order("number ASC")
 end
 
 def show

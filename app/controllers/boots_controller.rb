@@ -2,9 +2,7 @@ class BootsController < ApplicationController
 before_filter :authenticate_store!  
 
   def index
-    session.delete :customer_id
-    session.delete :package_id
-    @boots = current_store.boots
+    @boots = current_store.boots.order("number ASC")
   end
 
   def show
