@@ -1,4 +1,4 @@
-<%= simple_form_for(@package, :html => { :class => 'form-vertical' }, :remote => true) do |f| %>
+<%= simple_form_for(@package, :html => { :class => 'form-vertical' }, :remote => true) do |f| %>	
   <fieldset>
     <%= f.input :ski_id, :collection => @available_skis.order('number ASC'), :label_method => :number, :value_method => :id %>
     <%= f.input :boot_id, :collection => @available_boots.order('number ASC'), :label_method => :number, :value_method => :id %>

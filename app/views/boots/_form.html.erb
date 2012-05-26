@@ -1,4 +1,4 @@
-<%= simple_form_for(@boot, :html => { :class => 'form-vertical' }, :remote => true) do |f| %>
+<%= simple_form_for @boot, :html => { :class => 'form-vertical' }, :remote => true do |f| %>
 <fieldset>
     <%= f.input :number, :input_html => { :value => boot_suggested_number } %>
     <%= f.input :size, :collection => boot_size_options %>

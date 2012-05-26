@@ -75,7 +75,7 @@
 		      title: {	text: 'Boots Inventory' },
 		      xAxis: {	categories: ['33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46'] },
 			  yAxis: {	min: 0,
-						title: { text: 'Number of pairs'},
+						title: { text: 'Inventory'},
 								 stackLabels: { enabled: false,
 											    style: { fontWeight: 'bold',
 											    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray' }
@@ -97,15 +97,18 @@
 							this.series.name +': '+ this.y +'<br/>'+
 							'Total: '+ this.point.stackTotal; }
 						 },
-			   plotOptions: {
-							  column: {
-							            stacking: 'normal',
-							            dataLabels: {
-							                 		  enabled: this.y != 0 ? true : false,
-							                          color: 'white'
-													}
-							            }
-							 },
+			           plotOptions: {
+			                column: {
+				                    stacking: 'normal',
+				                    dataLabels: {
+				                        		enabled: true,
+												color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+						                        formatter: function() {
+						                            					if (this.y != 0) { return this.y; } else { return ''; }
+						                        					   }
+				                    			}
+			                			}
+			            			},
 		      series: [
 				      <% { "Reserved" => current_store.boots.reserved, "Available" => current_store.boots.available }.each do |name, boots| %>
 				      {
@@ -126,7 +129,7 @@
 		      title: {	text: 'Skis Inventory' },
 		      xAxis: {	categories: ['130-139', '140-149', '150-159', '160-169', '170-179', '180-189', '> 190'] },
 			  yAxis: {	min: 0,
-						title: { text: 'Number of pairs'},
+						title: { text: 'Inventory'},
 								 stackLabels: { enabled: false,
 											    style: { fontWeight: 'bold',
 											    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray' }
@@ -148,14 +151,18 @@
 							this.series.name +': '+ this.y +'<br/>'+
 							'Total: '+ this.point.stackTotal; }
 						 },
-			   plotOptions: {
-							  column: {
-							            stacking: 'normal',
-							            dataLabels: {
-							                 		  enabled: this.value = 0 ? false : true,
-							                          color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white' }
-							            }
-							 },
+				plotOptions: {
+		                column: {
+			                    stacking: 'normal',
+			                    dataLabels: {
+			                        		enabled: true,
+											color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+					                        formatter: function() {
+					                            					if (this.y != 0) { return this.y; } else { return ''; }
+					                        					   }
+			                    			}
+		                			}
+		            			},
 		      series: [
 				      <% { "Reserved" => current_store.skis.reserved, "Available" => current_store.skis.available }.each do |name, skis| %>
 				      {
@@ -167,13 +174,14 @@
 		    });
 		  });		
 	
-		</script>
-						
+		</script>					
 		<div class="row">	
 			  <div class="row" id="charts_row" style="height: 300px">	
 				<div class="span6" id="boots_chart" style="height: 300px"></div>
 				<div class="span6" id="skis_chart" style="height: 300px"></div>	
-			  </div> <!-- end charts section 	 -->			
+			  </div> <!-- end charts section 	 -->
+		<br />
+				<br />				
 			  <div class="row" id="tables">	
 					<div class="span4" id="customer_section">	
 						<h3><input type="text" name="search" value="" id="cust_tb_filter" placeholder="Search Customers" autofocus="">

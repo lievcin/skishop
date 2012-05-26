@@ -70,7 +70,7 @@ $(document).ready(function() {
 			  defaultDate: 0,
 			  minDate: 0,
 			  numberOfMonths: 2,
-  			  dateFormat: "yy-mm-dd",
+		  			  dateFormat: "yy-mm-dd",
 			  onSelect: function( selectedDate ) {
 						var option = this.id == "package_start_date" ? "minDate" : "maxDate",
 						instance = $( this ).data( "datepicker" ),

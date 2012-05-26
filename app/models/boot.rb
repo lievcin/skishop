@@ -3,6 +3,7 @@ class Boot < ActiveRecord::Base
   belongs_to :store
   has_many :packages
   validates :number, :uniqueness => { :scope => :store_id }
+  validates :number, :numericality => { :greater_than_or_equal_to => 1 }
   validates_presence_of :number, :size
 
       
