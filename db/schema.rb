@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525181306) do
+ActiveRecord::Schema.define(:version => 20120526130703) do
 
   create_table "boots", :force => true do |t|
     t.integer  "number"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20120525181306) do
   end
 
   create_table "packages", :force => true do |t|
-    t.string   "customer_id"
+    t.integer  "customer_id"
     t.integer  "ski_id"
     t.integer  "boot_id"
     t.date     "start_date"
@@ -57,14 +57,14 @@ ActiveRecord::Schema.define(:version => 20120525181306) do
 
   create_table "skis", :force => true do |t|
     t.integer  "number"
-    t.integer  "size"
     t.string   "brand"
     t.string   "condition"
     t.integer  "store_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.boolean  "in_store"
     t.boolean  "available"
+    t.string   "size",       :limit => 25
   end
 
   create_table "stores", :force => true do |t|

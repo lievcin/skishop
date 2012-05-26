@@ -4,6 +4,7 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require bespoke
+//= require highcharts
 //= require_tree .
 
 

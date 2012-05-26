@@ -3,6 +3,8 @@ before_filter :authenticate_store!
 
   def index
     @boots = current_store.boots.order("number ASC")
+    session.delete :customer_id
+    session.delete :package_id
   end
 
   def show

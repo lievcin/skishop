@@ -9,7 +9,8 @@ before_filter :authenticate_store!, :except => [:home]
   	@customers = current_store.customers.order("created_at DESC")
     if params[:customer_id]  
       session[:customer_id] = params[:customer_id] 
-      if session[:package_id]  
+      session.delete :package_id  if session[:package_id]  
+      if session[:package_id] 
       session.delete :package_id if Package.find(session[:package_id]).customer != Customer.find(params[:customer_id]) 
       end
     end
@@ -23,9 +24,9 @@ before_filter :authenticate_store!, :except => [:home]
       end
     end
     if @package 
-      @rentals = @package.rentals
+      @rentals = @package.rentals.order("created_at DESC")
     else
-      @rentals = @customer.rentals if @customer
+      @rentals = @customer.rentals.order("created_at DESC") if @customer
     end
         
   end

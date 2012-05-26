@@ -1,7 +1,15 @@
 module SkisHelper
-  
+
+  def skis_chart_series(skis)
+      skis_by_size = skis.group("size").select("size, count(id) as total_skis")
+      ski_size_options.map do |size|
+        ski = skis_by_size.detect { |ski| ski.size == size }
+        ski && ski.total_skis.to_f || 0
+      end.inspect
+  end
+    
   def ski_size_options
-    ['33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46']
+    ['130-139', '140-149', '150-159', '160-169', '170-179', '180-189', '> 190']
   end
   
   def ski_condition_options

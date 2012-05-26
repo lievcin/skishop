@@ -1,5 +1,13 @@
 module BootsHelper
   
+  def boots_chart_series(boots)
+      boots_by_size = boots.group("size").select("size, count(id) as total_boots")
+      (33..46).map do |size|
+        boot = boots_by_size.detect { |boot| boot.size == size }
+        boot && boot.total_boots.to_f || 0
+      end.inspect
+  end
+      
   def boot_size_options
     ['33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46']
   end

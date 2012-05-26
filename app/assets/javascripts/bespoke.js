@@ -2,6 +2,7 @@
 	
 $(document).ready(function() {
 
+	
 	    // $('see_customer').pjax('[data-pjax-container]');	
 		$('input#cust_tb_filter').quicksearch('table#customers tbody tr');	
 		$('input#packages_tb_filter').quicksearch('table#packages tbody tr');	
