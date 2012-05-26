@@ -5,9 +5,4 @@
 //= require twitter/bootstrap
 //= require bespoke
 //= require highcharts
-// require rails.validations
 //= require_tree .
-
-
-
-// require jquery.ui.all
